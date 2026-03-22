@@ -2,4 +2,5 @@
 
 public record CreateOrderLineRequest(
     Guid ProductId,
-    int Quantity);
+    int Quantity,
+    decimal UnitPrice);

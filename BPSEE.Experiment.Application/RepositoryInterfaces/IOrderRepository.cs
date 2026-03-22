@@ -2,10 +2,8 @@
 
 namespace BPSEE.Experiment.Application.RepositoryInterfaces;
 
-public interface IOrderRepository
+public interface IOrderRepository : IRepository<Order>
 {
-    Task<List<Order>> GetAllAsync(CancellationToken ct = default);
-    Task<Order?> GetByIdAsync(Guid id, CancellationToken ct = default);
-    Task AddAsync(Order order, CancellationToken ct = default);
-    Task SaveChangesAsync(CancellationToken ct = default);
+    Task<List<Order>> GetAllWithLinesAsync(CancellationToken ct = default);
+    Task<Order?> GetByIdWithLinesAsync(Guid id, CancellationToken ct = default);
 }

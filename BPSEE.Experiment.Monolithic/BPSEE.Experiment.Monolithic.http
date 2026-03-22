@@ -1,6 +1,0 @@
-@BPSEE.Experiment.Monolithic_HostAddress = http://localhost:5153
-
-GET {{BPSEE.Experiment.Monolithic_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

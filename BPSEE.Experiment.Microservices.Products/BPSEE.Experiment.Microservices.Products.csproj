@@ -9,5 +9,6 @@
   <ItemGroup>
     <ProjectReference Include="..\BPSEE.Experiment.Application\BPSEE.Experiment.Application.csproj" />
     <ProjectReference Include="..\BPSEE.Experiment.Infrastructure\BPSEE.Experiment.Infrastructure.csproj" />
+    <ProjectReference Include="..\BPSEE.Experiment.Migrations.Products\BPSEE.Experiment.Migrations.Products.csproj" />
   </ItemGroup>
 </Project>
