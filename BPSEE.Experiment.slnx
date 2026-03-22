@@ -9,5 +9,9 @@
   <Project Path="BPSEE.Experiment.Microservices.Orders/BPSEE.Experiment.Microservices.Orders.csproj" />
   <Project Path="BPSEE.Experiment.Microservices.Products/BPSEE.Experiment.Microservices.Products.csproj" />
   <Project Path="BPSEE.Experiment.Microservices.Users/BPSEE.Experiment.Microservices.Users.csproj" />
+  <Project Path="BPSEE.Experiment.Migrations.Monolithic/BPSEE.Experiment.Migrations.Monolithic.csproj" Id="cf630473-06e7-4aec-a0e1-18a085291fce" />
+  <Project Path="BPSEE.Experiment.Migrations.Orders/BPSEE.Experiment.Migrations.Orders.csproj" Id="f732883c-b3b3-460f-bb59-1c72626f6a6e" />
+  <Project Path="BPSEE.Experiment.Migrations.Products/BPSEE.Experiment.Migrations.Products.csproj" Id="a9ba2ef4-2503-4213-b04a-15ffcbe9cf2e" />
+  <Project Path="BPSEE.Experiment.Migrations.Users/BPSEE.Experiment.Migrations.Users.csproj" Id="11bf8609-9759-4e12-82e9-4e4a596b27fc" />
   <Project Path="BPSEE.Experiment.Monolithic/BPSEE.Experiment.Monolithic.csproj" />
 </Solution>
