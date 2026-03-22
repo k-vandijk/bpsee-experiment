@@ -362,3 +362,7 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /locust/reports
+/BPSEE.Experiment.Microservices.Orders/Properties/launchSettings.json
+/BPSEE.Experiment.Microservices.Products/Properties/launchSettings.json
+/BPSEE.Experiment.Microservices.Users/Properties/launchSettings.json
+/BPSEE.Experiment.Monolithic/Properties/launchSettings.json

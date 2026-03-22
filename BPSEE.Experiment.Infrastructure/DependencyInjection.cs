@@ -12,7 +12,7 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        if (configuration.GetConnectionString("MonolithicDb") != null)
+        if (!string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("CONNECTION_STRING_MONOLITHIC")))
         {
             services.AddScoped<IUserRepository, UserRepository<MonolithicDbContext>>();
             services.AddScoped<IProductRepository, ProductRepository<MonolithicDbContext>>();
@@ -22,19 +22,19 @@ public static class DependencyInjection
             services.AddScoped<IOrderService, OrderService>();
         }
 
-        if (configuration.GetConnectionString("UsersDb") != null)
+        if (!string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("CONNECTION_STRING_USERS")))
         {
             services.AddScoped<IUserRepository, UserRepository<UsersDbContext>>();
             services.AddScoped<IUserService, UserService>();
         }
 
-        if (configuration.GetConnectionString("ProductsDb") != null)
+        if (!string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("CONNECTION_STRING_PRODUCTS")))
         {
             services.AddScoped<IProductRepository, ProductRepository<ProductsDbContext>>();
             services.AddScoped<IProductService, ProductService>();
         }
 
-        if (configuration.GetConnectionString("OrdersDb") != null)
+        if (!string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("CONNECTION_STRING_ORDERS")))
         {
             services.AddScoped<IOrderRepository, OrderRepository<OrdersDbContext>>();
             services.AddScoped<IOrderService, OrderService>();

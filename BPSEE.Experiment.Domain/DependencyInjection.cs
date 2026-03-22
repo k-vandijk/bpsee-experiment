@@ -1,20 +1,19 @@
 ﻿using BPSEE.Experiment.Domain.Contexts;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BPSEE.Experiment.Domain;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddDomain(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddDomain(this IServiceCollection services)
     {
-        var monolithicConnectionString = configuration.GetConnectionString("MonolithicDb");
-        if (monolithicConnectionString != null)
+        var monolithicEnvironmentVariable = Environment.GetEnvironmentVariable("CONNECTION_STRING_MONOLITHIC");
+        if (!string.IsNullOrWhiteSpace(monolithicEnvironmentVariable))
         {
             services.AddDbContext<MonolithicDbContext>(options =>
                 options.UseSqlServer(
-                    monolithicConnectionString,
+                    monolithicEnvironmentVariable,
                     sqlOptions =>
                     {
                         sqlOptions.MigrationsAssembly("BPSEE.Experiment.Migrations.Monolithic");
@@ -22,12 +21,12 @@ public static class DependencyInjection
                     }));
         }
 
-        var ordersConnectionString = configuration.GetConnectionString("OrdersDb");
-        if (ordersConnectionString != null)
+        var ordersEnvironmentVariable = Environment.GetEnvironmentVariable("CONNECTION_STRING_ORDERS");
+        if (!string.IsNullOrWhiteSpace(ordersEnvironmentVariable))
         {
             services.AddDbContext<OrdersDbContext>(options =>
                 options.UseSqlServer(
-                    ordersConnectionString,
+                    ordersEnvironmentVariable,
                     sqlOptions =>
                     {
                         sqlOptions.MigrationsAssembly("BPSEE.Experiment.Migrations.Orders");
@@ -35,12 +34,12 @@ public static class DependencyInjection
                     }));
         }
 
-        var productsConnectionString = configuration.GetConnectionString("ProductsDb");
-        if (productsConnectionString != null)
+        var productsEnvironmentVariable = Environment.GetEnvironmentVariable("CONNECTION_STRING_PRODUCTS");
+        if (!string.IsNullOrWhiteSpace(productsEnvironmentVariable))
         {
             services.AddDbContext<ProductsDbContext>(options =>
                 options.UseSqlServer(
-                    productsConnectionString,
+                    productsEnvironmentVariable,
                     sqlOptions =>
                     {
                         sqlOptions.MigrationsAssembly("BPSEE.Experiment.Migrations.Products");
@@ -48,12 +47,12 @@ public static class DependencyInjection
                     }));
         }
 
-        var usersConnectionString = configuration.GetConnectionString("UsersDb");
-        if (usersConnectionString != null)
+        var usersEnvironmentVariable = Environment.GetEnvironmentVariable("CONNECTION_STRING_USERS");
+        if (!string.IsNullOrWhiteSpace(usersEnvironmentVariable))
         {
             services.AddDbContext<UsersDbContext>(options =>
                 options.UseSqlServer(
-                    usersConnectionString,
+                    usersEnvironmentVariable,
                     sqlOptions =>
                     {
                         sqlOptions.MigrationsAssembly("BPSEE.Experiment.Migrations.Users");
