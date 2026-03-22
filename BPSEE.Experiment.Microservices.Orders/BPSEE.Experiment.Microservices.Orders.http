@@ -1,0 +1,6 @@
+@BPSEE.Experiment.Microservices.Orders_HostAddress = http://localhost:5264
+
+GET {{BPSEE.Experiment.Microservices.Orders_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="Directory.Build.props"></File>
+    <File Path="Directory.Packages.props"></File>
+  </Folder>
+  <Project Path="BPSEE.Experiment.Application/BPSEE.Experiment.Application.csproj" Id="a14140e8-6c25-4e4f-bedb-e3aabffdf9f0" />
+  <Project Path="BPSEE.Experiment.Domain/BPSEE.Experiment.Domain.csproj" Id="fcc0d1b4-f4cd-47db-9b52-917ca876972e" />
+  <Project Path="BPSEE.Experiment.Infrastructure/BPSEE.Experiment.Infrastructure.csproj" Id="fb0c9b29-7372-4a8c-9987-85533a72aada" />
+  <Project Path="BPSEE.Experiment.Microservices.Orders/BPSEE.Experiment.Microservices.Orders.csproj" />
+  <Project Path="BPSEE.Experiment.Microservices.Products/BPSEE.Experiment.Microservices.Products.csproj" />
+  <Project Path="BPSEE.Experiment.Microservices.Users/BPSEE.Experiment.Microservices.Users.csproj" />
+  <Project Path="BPSEE.Experiment.Monolithic/BPSEE.Experiment.Monolithic.csproj" />
+</Solution>

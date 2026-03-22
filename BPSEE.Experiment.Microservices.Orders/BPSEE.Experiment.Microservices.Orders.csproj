@@ -1,0 +1,6 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  <ItemGroup>
+    <ProjectReference Include="..\BPSEE.Experiment.Application\BPSEE.Experiment.Application.csproj" />
+    <ProjectReference Include="..\BPSEE.Experiment.Infrastructure\BPSEE.Experiment.Infrastructure.csproj" />
+  </ItemGroup>
+</Project>
