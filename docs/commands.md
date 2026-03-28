@@ -17,12 +17,8 @@ pip install locust
 ### Usage
 
 ```bash
-.\locust\run_tests.ps1 -Architecture monolithic -BaseUrl https://as-kvandijk-bpsee-experiment-monolithic-aqapgzdsbhbbcae7.westeurope-01.azurewebsites.net
-```
-
-```bash
 .\locust\run_tests.ps1 -Architecture microservices `
-    -UsersHost    https://<users>.azurecontainerapps.io `
-    -ProductsHost https://<products>.azurecontainerapps.io `
-    -OrdersHost   https://<orders>.azurecontainerapps.io
+    -UsersHost    https://ca-exp-microservices-users.wittysand-6561c76d.westeurope.azurecontainerapps.io `
+    -ProductsHost https://ca-exp-microservices-products.wittysand-6561c76d.westeurope.azurecontainerapps.io `
+    -OrdersHost   https://ca-exp-microservices-orders.wittysand-6561c76d.westeurope.azurecontainerapps.io
 ```
