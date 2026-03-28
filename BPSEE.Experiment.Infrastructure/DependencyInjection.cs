@@ -12,16 +12,6 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        if (!string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("CONNECTION_STRING_MONOLITHIC")))
-        {
-            services.AddScoped<IUserRepository, UserRepository<MonolithicDbContext>>();
-            services.AddScoped<IProductRepository, ProductRepository<MonolithicDbContext>>();
-            services.AddScoped<IOrderRepository, OrderRepository<MonolithicDbContext>>();
-            services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IProductService, ProductService>();
-            services.AddScoped<IOrderService, OrderService>();
-        }
-
         if (!string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("CONNECTION_STRING_USERS")))
         {
             services.AddScoped<IUserRepository, UserRepository<UsersDbContext>>();

@@ -8,19 +8,6 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddDomain(this IServiceCollection services)
     {
-        var monolithicEnvironmentVariable = Environment.GetEnvironmentVariable("CONNECTION_STRING_MONOLITHIC");
-        if (!string.IsNullOrWhiteSpace(monolithicEnvironmentVariable))
-        {
-            services.AddDbContext<MonolithicDbContext>(options =>
-                options.UseSqlServer(
-                    monolithicEnvironmentVariable,
-                    sqlOptions =>
-                    {
-                        sqlOptions.MigrationsAssembly("BPSEE.Experiment.Migrations.Monolithic");
-                        sqlOptions.EnableRetryOnFailure();
-                    }));
-        }
-
         var ordersEnvironmentVariable = Environment.GetEnvironmentVariable("CONNECTION_STRING_ORDERS");
         if (!string.IsNullOrWhiteSpace(ordersEnvironmentVariable))
         {
