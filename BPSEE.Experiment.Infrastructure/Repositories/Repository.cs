@@ -26,4 +26,7 @@ public class Repository<TEntity, TContext> : IRepository<TEntity>
 
     public async Task SaveChangesAsync(CancellationToken ct = default)
         => await Context.SaveChangesAsync(ct);
+
+    public virtual async Task DeleteAllAsync(CancellationToken ct = default)
+        => await Context.Set<TEntity>().ExecuteDeleteAsync(ct);
 }

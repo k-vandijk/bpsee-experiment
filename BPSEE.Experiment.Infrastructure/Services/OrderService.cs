@@ -55,6 +55,9 @@ public class OrderService : IOrderService
         return ToDto(order);
     }
 
+    public Task DeleteAllAsync(CancellationToken ct = default)
+        => _repository.DeleteAllAsync(ct);
+
     private static OrderDto ToDto(Order o) => new(
         o.Id,
         o.UserId,

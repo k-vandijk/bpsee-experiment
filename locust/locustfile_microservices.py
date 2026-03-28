@@ -15,7 +15,8 @@
 
 import os
 import random
-from locust import HttpUser, task, between
+import requests as _requests
+from locust import HttpUser, task, between, events
 from shape import ThreePhaseShape
 from tasks import create_user, create_product, create_order, get_all, get_by_id
 
@@ -79,6 +80,20 @@ class ProductsServiceUser(HttpUser):
         pid = create_product(self.client)
         if pid:
             _product_ids.append(pid)
+
+
+@events.test_stop.add_listener
+def on_test_stop(environment, **kwargs):
+    """Delete all test data from each service after the test run."""
+    for host, path in [
+        (ORDERS_HOST,   "/api/orders"),
+        (PRODUCTS_HOST, "/api/products"),
+        (USERS_HOST,    "/api/users"),
+    ]:
+        try:
+            _requests.delete(f"{host}{path}", timeout=30)
+        except Exception as exc:
+            print(f"Cleanup failed for {host}{path}: {exc}")
 
 
 class OrdersServiceUser(HttpUser):

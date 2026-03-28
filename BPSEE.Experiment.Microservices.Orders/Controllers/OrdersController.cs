@@ -32,4 +32,11 @@ public class OrdersController : ControllerBase
         var order = await _orderService.CreateAsync(request, ct);
         return CreatedAtAction(nameof(GetById), new { id = order.Id }, order);
     }
+
+    [HttpDelete]
+    public async Task<IActionResult> DeleteAll(CancellationToken ct)
+    {
+        await _orderService.DeleteAllAsync(ct);
+        return NoContent();
+    }
 }

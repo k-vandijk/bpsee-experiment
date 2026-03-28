@@ -32,4 +32,11 @@ public class UsersController : ControllerBase
         var user = await _userService.CreateAsync(request, ct);
         return CreatedAtAction(nameof(GetById), new { id = user.Id }, user);
     }
+
+    [HttpDelete]
+    public async Task<IActionResult> DeleteAll(CancellationToken ct)
+    {
+        await _userService.DeleteAllAsync(ct);
+        return NoContent();
+    }
 }

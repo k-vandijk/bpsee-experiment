@@ -32,4 +32,11 @@ public class ProductsController : ControllerBase
         var product = await _productService.CreateAsync(request, ct);
         return CreatedAtAction(nameof(GetById), new { id = product.Id }, product);
     }
+
+    [HttpDelete]
+    public async Task<IActionResult> DeleteAll(CancellationToken ct)
+    {
+        await _productService.DeleteAllAsync(ct);
+        return NoContent();
+    }
 }

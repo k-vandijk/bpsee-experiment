@@ -43,5 +43,8 @@ public class UserService : IUserService
         return ToDto(user);
     }
 
+    public Task DeleteAllAsync(CancellationToken ct = default)
+        => _repository.DeleteAllAsync(ct);
+
     private static UserDto ToDto(User user) => new(user.Id, user.Name, user.Email);
 }

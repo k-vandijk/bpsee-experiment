@@ -6,7 +6,7 @@
 #
 # Configure TARGET_USERS via environment variable or edit the constant below.
 # Run example:
-#   TARGET_USERS=100 locust -f locustfile_monolithic.py --headless --run-time 8m
+#   TARGET_USERS=100 locust -f locustfile_microservices.py --headless --run-time 8m
 
 import os
 from locust import LoadTestShape

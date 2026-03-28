@@ -45,5 +45,8 @@ public class ProductService : IProductService
         return ToDto(product);
     }
 
+    public Task DeleteAllAsync(CancellationToken ct = default)
+        => _repository.DeleteAllAsync(ct);
+
     private static ProductDto ToDto(Product p) => new(p.Id, p.Name, p.Description, p.Price, p.Stock);
 }

@@ -20,4 +20,10 @@ public class OrderRepository<TContext> : Repository<Order, TContext>, IOrderRepo
         => await Context.Set<Order>()
             .Include(o => o.OrderLines)
             .FirstOrDefaultAsync(o => o.Id == id, ct);
+
+    public override async Task DeleteAllAsync(CancellationToken ct = default)
+    {
+        await Context.Set<OrderLine>().ExecuteDeleteAsync(ct);
+        await Context.Set<Order>().ExecuteDeleteAsync(ct);
+    }
 }
